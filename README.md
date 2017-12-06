@@ -1,3 +1,4 @@
+# 集成推送平台接口说明
 
 # API接口规范
 ## 接口响应规范 
@@ -259,11 +260,11 @@ messageJson|Json格式，具体如下必填
     //参考客户端参数定义说明
     "clickTypeInfo": {
         "clickType": 点击动作 (0,"打开应用"),(1,"打开应用页面"),(2,"打开URI页面"),(3, "应用客户端自定义"),(4, "打开自定Intent URI");【int 非必填,默认为0】
-        "url": URI页面地址, 【clickType=2，必填, 长度限制1000字节】
+        "url": URI页面地址, 【clickType=2，必填】
         "parameters":参数 【JSON格式】【非必填】 
-        "activity":应用页面地址 应用页面地址【clickType=1，必填, 长度限制1000字节 格式 pkg.activity eg: com.meizu.upspushdemo.TestActivity】
-        "customAttribute":应用客户端自定义【clickType=3，必填, 长度限制1000字节】
-        "customUri":打开自定Intent URI 【clickType=4，必填, 长度限制1000字节 eg:upspushscheme://com.meizu.upspush/notify_detail?title=ups title&content=ups content】
+        "activity":应用页面地址 应用页面地址【clickType=1，必填 格式 pkg.activity eg: com.meizu.upspushdemo.TestActivity】
+        "customAttribute":应用客户端自定义【clickType=3，必填 】
+        "customUri":打开自定Intent URI 【clickType=4，必填 eg:upspushscheme://com.meizu.upspush/notify_detail?title=ups title&content=ups content】
     },
     "pushTimeInfo": {
         "offLine": 是否进离线消息(0 否 1 是[validTime]) 【int 非必填，默认值为1】
@@ -441,11 +442,11 @@ messageJson|Json格式，具体如下必填
     },
     "clickTypeInfo": {
         "clickType": 点击动作 (0,"打开应用"),(1,"打开应用页面"),(2,"打开URI页面"),(3, "应用客户端自定义"),(4, "打开自定Intent URI");【int 非必填,默认为0】
-        "url": URI页面地址, 【clickType=2，必填, 长度限制1000字节】
+        "url": URI页面地址, 【clickType=2，必填】
         "parameters":参数 【JSON格式】【非必填】 
-        "activity":应用页面地址 应用页面地址【clickType=1，必填, 长度限制1000字节 格式 pkg.activity eg: com.meizu.upspushdemo.TestActivity】
-        "customAttribute":应用客户端自定义【clickType=3，必填, 长度限制1000字节】
-        "customUri":打开自定Intent URI 【clickType=4，必填, 长度限制1000字节 eg:upspushscheme://com.meizu.upspush/notify_detail?title=ups title&content=ups content】
+        "activity":应用页面地址 应用页面地址【clickType=1，必填 格式 pkg.activity eg: com.meizu.upspushdemo.TestActivity】
+        "customAttribute":应用客户端自定义【clickType=3，必填】
+        "customUri":打开自定Intent URI 【clickType=4，必填 eg:upspushscheme://com.meizu.upspush/notify_detail?title=ups title&content=ups content】
     },
     "pushTimeInfo": {
         "offLine": 是否进离线消息(0 否 1 是[validTime]) 【int 非必填，默认值为1】
