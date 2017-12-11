@@ -558,19 +558,13 @@ sign|签名  必填
             "acceptNo": 609,//接收数
             "clickNo": 30,//点击数
             "date": "2017-05-03",//推送日期
-            "displayNo": 241,//展示数
             "pushedNo": 691287,//推送总数
-            "targetNo": 1741833,//推送目标数
-            "validNo": 636257//推送有效数
         },
         {
             "acceptNo": 228,
             "clickNo": 31,
             "date": "2017-05-02",
-            "displayNo": 39,
             "pushedNo": 228463,
-            "targetNo": 879102,
-            "validNo": 210962
         }
     ]
 }
