@@ -259,11 +259,7 @@ messageJson|Json格式，具体如下必填
     },
     //参考客户端参数定义说明
     "clickTypeInfo": {
-        "clickType": 点击动作 (0,"打开应用"),(1,"打开应用页面"),(2,"打开URI页面"),(3, "应用客户端自定义"),(4, "打开自定Intent URI");【int 非必填,默认为0】
-        "url": URI页面地址, 【clickType=2，必填】
-        "parameters":参数 【JSON格式】【非必填】 
-        "activity":应用页面地址 应用页面地址【clickType=1，必填 格式 pkg.activity eg: com.meizu.upspushdemo.TestActivity】
-        "customAttribute":应用客户端自定义【clickType=3，必填 】
+        "clickType": (4, "打开自定Intent URI");【int 必填】
         "customUri":打开自定Intent URI 【clickType=4，必填 eg:upspushscheme://com.meizu.upspush/notify_detail?title=ups title&content=ups content】
     },
     "pushTimeInfo": {
@@ -437,12 +433,9 @@ messageJson|Json格式，具体如下必填
         "title": 推送标题, 【string 必填，字数限制1~32字符】
         "content": 推送内容, 【string 必填，字数限制1~100字符】
     },
+    //参考客户端参数定义说明
     "clickTypeInfo": {
-        "clickType": 点击动作 (0,"打开应用"),(1,"打开应用页面"),(2,"打开URI页面"),(3, "应用客户端自定义"),(4, "打开自定Intent URI");【int 非必填,默认为0】
-        "url": URI页面地址, 【clickType=2，必填】
-        "parameters":参数 【JSON格式】【非必填】 
-        "activity":应用页面地址 应用页面地址【clickType=1，必填 格式 pkg.activity eg: com.meizu.upspushdemo.TestActivity】
-        "customAttribute":应用客户端自定义【clickType=3，必填】
+        "clickType": (4, "打开自定Intent URI");【int 必填】
         "customUri":打开自定Intent URI 【clickType=4，必填 eg:upspushscheme://com.meizu.upspush/notify_detail?title=ups title&content=ups content】
     },
     "pushTimeInfo": {
