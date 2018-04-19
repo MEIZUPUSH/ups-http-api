@@ -505,6 +505,80 @@ messageJson|Json格式，具体如下必填
 }
 ```
 
+### 应用全网推送（通知栏消息）
+
+描述|内容
+---|---
+接口功能|根据别名推送
+请求方法|Post
+请求路径|/ups/api/server/push/pushTask/pushToApp
+请求HOST|server-api-mzups.meizu.com
+请求头|Content-Type:application/x-www-form-urlencoded;charset=UTF-8
+备注|签名参数 sign=MD5_SIGN
+请求内容|无
+响应码|200
+响应头|无
+请求参数|按POST提交表单的标准，你的任何值字符串是需要 urlencode 编码的 
+
+参数|描述
+---|---
+appId|推送应用ID 必填
+pushType|消息类型 0：通知栏 必填
+sign|签名 必填
+messageJson|Json格式，具体如下必填
+
+```
+{
+    "noticeBarInfo": {
+        "noticeBarType": 通知栏样式(0, "标准"),(2, "安卓原生")【int 非必填，值为0】
+        "title": 推送标题, 【string 必填，字数限制1~32字符】
+        "content": 推送内容, 【string 必填，字数限制1~100字符】
+    },
+    "clickTypeInfo": {
+        "clickType": 点击动作 (0,"打开应用"),(1,"打开应用页面"),(2,"打开URI页面"),(3, "应用客户端自定义")【int 非必填,默认为0】
+        "url": URI页面地址, 【string clickType为打开URI页面时，必填, 长度限制1000字节】
+        "parameters":参数 【JSON格式】【非必填】 
+        "activity":应用页面地址 【string clickType为打开应用页面时，必填, 长度限制1000字节】
+        "customAttribute":应用客户端自定义【string clickType为应用客户端自定义时，必填， 输入长度为1000字节以内】
+    },
+    "pushTimeInfo": {
+        "offLine": 是否进离线消息(0 否 1 是[validTime]) 【int 非必填，默认值为1】
+        "validTime": 有效时长 (1 72 小时内的正整数) 【int offLine 值为1时，必填，默认24】
+    "pushTimeType": 定时推送 (0, "即时"),(1, "定时")【必填，默认0】
+        "startTime": 任务定时开始时间(yyyy-MM-dd HH:mm:ss) 【非必填pushTimeType为1必填】
+    },
+    "advanceInfo": {
+        "suspend":是否通知栏悬浮窗显示 (1 显示  0 不显示) 【int 非必填，默认1】
+        "clearNoticeBar":是否可清除通知栏 (1 可以  0 不可以) 【int 非必填，默认1】
+        "fixDisplay":是否定时展示 (1 是  0 否) 【int 非必填，默认0】
+        "fixStartDisplayTime": 定时展示开始时间(yyyy-MM-dd HH:mm:ss) 【str 非必填】
+        "fixEndDisplayTime ": 定时展示结束时间(yyyy-MM-dd HH:mm:ss) 【str 非必填】   
+        "notificationType": {
+            "vibrate":  震动 (0关闭  1 开启) ,  【string 非必填，默认1】
+            "lights":   闪光 (0关闭  1 开启), 【string 非必填，默认1】
+            "sound":   声音 (0关闭  1 开启), 【string 非必填，默认1】
+        }
+    }
+}
+
+```
+
+响应内容
+
+> 成功情况：
+
+```
+{
+    "code": "200",
+    "message": "",
+    "value": {
+        "taskId": 28 (任务Id)
+        "pushType": 0 (推送类型 0:通知栏)
+        "appId": 1000000 (应用appId)
+    },
+    "redirect": ""
+}
+```
 
 ## 统计API
 ### 获取应用推送统计 
