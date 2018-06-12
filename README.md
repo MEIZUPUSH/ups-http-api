@@ -513,7 +513,7 @@ messageJson|Json格式，具体如下必填
 
 描述|内容
 ---|---
-接口功能|根据别名推送
+接口功能|应用全网推送
 请求方法|Post
 请求路径|/ups/api/server/push/pushTask/pushToApp
 请求HOST|server-api-mzups.meizu.com
@@ -547,7 +547,7 @@ messageJson|Json格式，具体如下必填
     "pushTimeInfo": {
         "offLine": 是否进离线消息(0 否 1 是[validTime]) 【int 非必填，默认值为1】
         "validTime": 有效时长 (1 72 小时内的正整数) 【int offLine 值为1时，必填，默认24】
-    "pushTimeType": 定时推送 (0, "即时"),(1, "定时")【必填，默认0】
+        "pushTimeType": 定时推送 (0, "即时"),(1, "定时")【必填，默认0】
         "startTime": 任务定时开始时间(yyyy-MM-dd HH:mm:ss) 【非必填pushTimeType为1必填】
     },
     "advanceInfo": {
@@ -580,6 +580,63 @@ messageJson|Json格式，具体如下必填
         "appId": 1000000 (应用appId)
     },
     "redirect": ""
+}
+```
+
+### 取消任务推送
+
+描述|内容
+---|---
+接口功能|取消任务推送
+请求方法|Post
+请求路径|/ups/api/server/push/pushTask/cancel
+请求HOST|server-api-mzups.meizu.com
+请求头|Content-Type:application/x-www-form-urlencoded;charset=UTF-8
+备注|签名参数 sign=MD5_SIGN
+请求内容|无
+响应码|200
+响应头|无
+请求参数|按POST提交表单的标准，你的任何值字符串是需要 urlencode 编码的 
+
+参数|描述
+---|---
+appId|推送应用ID 必填
+pushType|消息类型 0 通知栏 必填
+taskId|取消任务ID
+sign|签名 必填
+
+
+响应内容
+
+> 成功情况：
+
+```
+{
+    "code": "200",
+    "message": "",
+    "redirect": "",
+    "value": {
+        "result": true 成功
+    }
+}
+```
+
+> 失败情况：
+
+
+```
+{
+    "code": "110032",
+    "message": "非法的taskId",
+    "redirect": "",
+    "value": ""
+}
+
+{
+    "code": "500",
+    "message": "任务已完成，无法取消",
+    "redirect": "",
+    "value": ""
 }
 ```
 
